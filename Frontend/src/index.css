@@ -1,0 +1,177 @@
+/* Import Tailwind CSS base styles */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind base;
+/* Import Tailwind CSS component styles */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind components;
+/* Import Tailwind CSS utility styles */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind utilities;
+
+/* Root element styles for the entire application */
+:root {
+  /* Set default font family stack */
+  font-family: sans-serif, Arial, Inter, system-ui, Avenir, Helvetica;
+  /* Set line height for better readability */
+  line-height: 1.5;
+  /* Set default font weight */
+  font-weight: 400;
+  /* Enable smooth scrolling behavior */
+  scroll-behavior: smooth;
+}
+
+/* Hide webkit scrollbar for cleaner appearance */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Premium button styling with special effects */
+.premium-button {
+  /* Set relative positioning for pseudo-element positioning */
+  position: relative;
+  /* Ensure button appears above background effects */
+  z-index: 2;
+}
+
+/* Premium button background effect using pseudo-element */
+.premium-button::before {
+  /* Set absolute positioning for the background effect */
+  position: absolute;
+  /* Display as block element */
+  display: block;
+  /* Empty content for pseudo-element */
+  content: '';
+  /* Center the effect vertically */
+  top: 50%;
+  /* Center the effect horizontally */
+  left: 50%;
+  /* Transform to center the element */
+  transform: translate(-50%, -50%);
+  /* Set width slightly larger than button */
+  width: calc(100% + 1px);
+  /* Set height slightly larger than button */
+  height: calc(100% + 1px);
+  /* Create radial gradient background effect */
+  background: radial-gradient(circle at 50% 50%,gold,magenta);
+  /* Apply blur effect to create glow */
+  filter: blur(26px);
+  /* Place behind the button text */
+  z-index: -1;
+}
+
+/* Blur background effect for glassmorphism */
+.blur-bg {
+  /* Apply backdrop blur effect */
+  backdrop-filter: blur(24px);
+}
+
+/* Disable text selection for div, p, and img elements */
+div,
+p,
+img {
+  user-select: none;
+}
+
+/* Body element styles */
+body {
+  /* Remove default margin */
+  margin: 0;
+  /* Disable text selection */
+  user-select: none;
+  /* Set background image */
+  background: url('https://as1.ftcdn.net/v2/jpg/02/98/36/64/1000_F_298366478_95ulqYSXZD0M1W1XmL5NttWqINXM31W3.jpg');
+  /* Scale background to contain */
+  background-size: contain;
+  /* Fix background position */
+  background-attachment: fixed;
+}
+
+/* Remove outline from all elements */
+* {
+  outline: none !important;
+}
+
+/* Hide default cursor on all elements */
+* {
+  cursor: none !important;
+}
+
+/* Custom cursor styling */
+#cursor {
+  /* Disable pointer events so cursor doesn't interfere with interactions */
+  pointer-events: none;
+  /* Set cursor width */
+  width: 25px;
+  /* Set cursor height */
+  height: 25px;
+  /* Make cursor circular */
+  border-radius: 50%;
+  /* Invert colors and add drop shadow */
+  filter: invert(100%) drop-shadow(0px 0px 4px #000);
+  /* Fix cursor position */
+  position: fixed;
+  /* Ensure cursor appears above all content */
+  z-index: 1000;
+  /* Apply rotation transform */
+  transform: translate(0%, 0%) rotate(-200deg);
+}
+
+/* Scroll down animation for the down arrow */
+.scroll-down-anim {
+  /* Apply hover animation with custom timing */
+  animation: 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite alternate hover;
+}
+
+/* Position snackbar notifications */
+.notistack-SnackbarContainer {
+  /* Fix position at bottom left */
+  position: sticky;
+  /* Distance from bottom */
+  bottom: 10px;
+  /* Distance from left */
+  left: 10px;
+}
+
+/* Growing animation element for scroll down button */
+.grow-animation {
+  /* Set absolute positioning */
+  position: absolute;
+  /* Set width */
+  width: 50px;
+  /* Set height */
+  height: 50px;
+  /* Make it circular */
+  border-radius: 100%;
+  /* Set background color */
+  background: white;
+  /* Apply grow animation */
+  animation: 1s linear infinite grow;
+}
+
+/* Keyframes for hover animation (up and down movement) */
+@keyframes hover {
+  /* Starting position (moved up) */
+  0% {
+    transform: translateY(-50%);
+  }
+
+  /* Ending position (moved down) */
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+/* Keyframes for grow animation (scaling and fading) */
+@keyframes grow {
+  /* Starting state (small and visible) */
+  0% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+
+  /* Ending state (large and transparent) */
+  100% {
+    opacity: 0;
+    transform: scale(4);
+  }
+}
