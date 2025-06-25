@@ -1,10 +1,7 @@
 {
-    // Array of URL rewrite rules for SPA routing
     "rewrites": [
         {
-            // Source pattern to match all routes
             "source": "/(.*)",
-            // Destination to serve index.html for all routes (SPA behavior)
             "destination": "/index.html"
         }
     ]
