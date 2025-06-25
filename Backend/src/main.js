@@ -10,11 +10,16 @@ import { Product } from "./Models/Products.js";
 // import { setup } from "./setup.js";
 // Import database connection
 import { db } from "./db.js";
+
+import pg from 'pg';
+
 // Import dotenv for loading environment variables
 import dotenv from "dotenv";
 
 // Load environment variables from .env file
 dotenv.config();
+
+console.log('pg version:', pg?.version);
 
 // Create an Express application instance
 const app = express();
