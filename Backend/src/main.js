@@ -7,7 +7,7 @@ import { Order } from "./Models/Orders.js";
 // Import Product model for database operations related to products
 import { Product } from "./Models/Products.js";
 // Import setup function for database initialization
-import { setup } from "./setup.js";
+// import { setup } from "./setup.js";
 // Import database connection
 import { db } from "./db.js";
 // Import dotenv for loading environment variables
@@ -82,14 +82,14 @@ app.get('/orders', async (req, res) => {
 })
 
 // GET endpoint to run database setup
-app.get('/setup', async (req, res) => {
-    // Call the setup function to initialize the database
-    setup();
-    // Set success message
-    const message = 'setup done';
-    // Send success response with 200 status code
-    res.status(200).json({ message });
-})
+// app.get('/setup', async (req, res) => {
+//     // Call the setup function to initialize the database
+//     setup();
+//     // Set success message
+//     const message = 'setup done';
+//     // Send success response with 200 status code
+//     res.status(200).json({ message });
+// })
 
 // GET endpoint to retrieve all products
 app.get('/products', async (req, res) => {
