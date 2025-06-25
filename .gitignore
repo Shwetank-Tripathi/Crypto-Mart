@@ -1,3 +1,5 @@
-/frontend/node_modules
-/backend/node_modules
-/backend/src/setup.js
+/Backend/node_modules
+/Frontend/node_modules
+/Backend/src/setup.js
+/Backend/.env
+/Frontend/.env
