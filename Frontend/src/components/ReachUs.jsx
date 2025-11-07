@@ -1,14 +1,9 @@
-// Import React hooks for state management
 import { useState, useRef } from 'react';
-// Import EmailJS for email functionality
 import emailjs from '@emailjs/browser';
 
-// ReachUs component for contact form and company information
 function ReachUs() {
-  // Create a ref for the form element
   const form = useRef();
   
-  // State for form data
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,11 +11,9 @@ function ReachUs() {
     message: ''
   });
   
-  // State for form submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+  const [submitStatus, setSubmitStatus] = useState(null);
   
-  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -29,33 +22,27 @@ function ReachUs() {
     }));
   };
   
-  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     
-    // Set submitting state
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // EmailJS configuration - you'll need to replace these with your actual IDs
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID; // Replace with your EmailJS service ID
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // Replace with your EmailJS template ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY; // Replace with your EmailJS public key
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     
-    // Prepare template parameters
     const templateParams = {
       name: `${formData.firstName} ${formData.lastName}`,
       email: formData.email,
       message: formData.message,
-      newsletter: 'No' // Default value since newsletter feature is removed
+      newsletter: 'No'
     };
     
-    // Send email using EmailJS
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setSubmitStatus('success');
-        // Reset form data
         setFormData({
           firstName: '',
           lastName: '',
@@ -72,7 +59,6 @@ function ReachUs() {
       });
   };
   
-  // Return the JSX structure for the contact section
   return (
     <div className="max-w-screen-lg mx-auto p-5 py-20">
       <div className="grid grid-cols-1 md:grid-cols-12 bg-gray-800">
@@ -123,7 +109,6 @@ function ReachUs() {
               x="0px"
               y="0px"
               viewBox="0 0 60.002 60.002"
-              //   style="enable-background:new 0 0 60.002 60.002;"
             >
               <g>
                 <path
@@ -173,7 +158,6 @@ function ReachUs() {
               x="0px"
               y="0px"
               viewBox="0 0 300.988 300.988"
-              //   style="enable-background:new 0 0 300.988 300.988;"
             >
               <g>
                 <g>

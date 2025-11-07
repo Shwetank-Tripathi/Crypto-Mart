@@ -1,48 +1,31 @@
 import { useEffect, useRef } from "react";
 
-// Particle class for creating animated particles
 class Particle {
-    // Constructor to initialize particle properties
     constructor(radius, x, y, dx, dy, color) {
-        // Particle radius for size
         this.radius = radius;
-        // X coordinate position
         this.x = x;
-        // Y coordinate position
         this.y = y;
-        // X direction velocity
         this.dx = dx;
-        // Y direction velocity
         this.dy = dy;
-        // Particle color
         this.color = color;
     }
 
-    // Method to draw the particle on canvas
     draw(ctx) {
-        // Begin drawing path
         ctx.beginPath();
-        // Draw circular particle
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        // Set fill color
         ctx.fillStyle = this.color;
-        // Fill the particle
         ctx.fill();
     }
 
-    // Method to update particle position and handle bouncing
     update($canvas) {
-        // Check if particle hits left or right edge and reverse X direction
         if (this.x < this.radius || this.x > $canvas.width - this.radius) {
             this.dx *= -1;
         }
 
-        // Check if particle hits top or bottom edge and reverse Y direction
         if (this.y < this.radius || this.y > $canvas.height - this.radius) {
             this.dy *= -1;
         }
 
-        // Update particle position based on velocity
         this.x += this.dx;
         this.y += this.dy;
     }
